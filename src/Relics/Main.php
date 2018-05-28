@@ -1,5 +1,7 @@
 <?php
-namespace SimpleRelics;
+
+namespace Relics;
+
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\block\Block;
@@ -12,6 +14,7 @@ use pocketmine\Player;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\utils\TextFormat as TF;
 use pocketmine\utils\Config;
+
 class Main extends PluginBase implements Listener{
 	
 	
