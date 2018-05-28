@@ -1,0 +1,6 @@
+name: Relics
+main: Relics\Main
+version: 1.0
+api: [3.0.0-ALPHA11, 3.0.0-ALPHA12]
+author: DuooIncc
+description: Get relics while mining
