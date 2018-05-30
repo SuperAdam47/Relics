@@ -22,7 +22,7 @@ class Main extends PluginBase implements Listener{
 			
 			$this->getServer()->getPluginManager()->registerEvents($this,$this);
 			$this->saveDefaultConfig();
-			$this->getServer()->getLogger()->notice(TF::AQUA . TF::BOLD . "SimpleRelics" . TF::RESET . TF::GRAY . "has been loaded! Plugin by DuooIncc");
+			$this->getServer()->getLogger()->notice(TF::AQUA . TF::BOLD . "Relics" . TF::RESET . TF::GRAY . "has been loaded! Plugin by DuooIncc");
 			$this->getServer()->getLogger()->notice(TF::GRAY . "Github: https://github.com/DuooIncc");
 			$this->getServer()->getLogger()->notice(TF::GRAY . "Twitter: https://twitter.com/duooincurr");
 		
@@ -30,7 +30,7 @@ class Main extends PluginBase implements Listener{
 	
 		public function onDisable() {
 		
-			$this->getServer()->getLogger()->warning(TF::AQUA . TF::BOLD . "SimpleRelics" . TF::RESET . TF::GRAY . "has been unloaded!");
+			$this->getServer()->getLogger()->warning(TF::AQUA . TF::BOLD . "Relics" . TF::RESET . TF::GRAY . "has been unloaded!");
 		
 	}
 	
@@ -39,7 +39,7 @@ class Main extends PluginBase implements Listener{
 		
 			if($event->getBlock()->getId() == 1) {
 			
-				if(mt_rand(1, 5000) === 10) {
+				if(mt_rand(1, 500) === 10) {
 		
 					$player = $event->getPlayer();
 					$name = $player->getName();
