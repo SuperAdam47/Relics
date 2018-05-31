@@ -44,7 +44,7 @@ class Main extends PluginBase implements Listener{
 					$player = $event->getPlayer();
 					$name = $player->getName();
 			
-					$tier1 = Item::get(Item::NETEHR_STAR, 0, 1);
+					$tier1 = Item::get(Item::NETHER_STAR, 0, 1);
 					$tier1->setCustomName(TF::RESET . TF::GOLD . TF::BOLD . "Relic" . TF::RESET . TF::GRAY . " (Click)" . PHP_EOL .
 					TF::GRAY . " * " . TF::GREEN . "A treasure found by mining stone" . PHP_EOL .
 					TF::GRAY . " * " . TF::GREEN . "Tap anywhere to see what it holds");
