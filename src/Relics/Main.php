@@ -39,7 +39,7 @@ class Main extends PluginBase implements Listener{
 		
 			if($event->getBlock()->getId() == 1) {
 			
-				if(mt_rand(1, 500) === 10) {
+				if(mt_rand(1, 50) === 10) {
 		
 					$player = $event->getPlayer();
 					$name = $player->getName();
