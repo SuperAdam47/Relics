@@ -43,7 +43,7 @@ class Main extends PluginBase implements Listener
 
         if ($event->getBlock()->getId() == 1) {
 
-            if (mt_rand(1, 50) === 10) {
+            if (mt_rand(1, 500) === 10) {
 
                 $player = $event->getPlayer();
                 $name = $player->getName();
@@ -57,14 +57,14 @@ class Main extends PluginBase implements Listener
                 $player->addtitle(TF::GOLD . "Relic Found!!", TF::GREEN . TF::BOLD . "Wonder what's inside?" . TF::RESET);
                 $this->getServer()->broadcastMessage(TF::RED . TF::BOLD . "(!) " . TF::RESET . TF::GREEN . $name . TF::GRAY . " has found a " . TF::GOLD . TF::BOLD . "Common Relic");
 
-                if (mt_rand(1, 500) === 10) {
+                if (mt_rand(1, 5000) === 10) {
 
                     $player = $event->getPlayer();
                     $name = $player->getName();
 
                     $tier2 = Item::get(Item::NETHER_STAR, 0, 1);
-                    $tier2->setCustomName(TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" .
-                        TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" .
+                    $tier2->setCustomName(TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" . PHP_EOL .
+                        TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" . PHP_EOL .
                         TF::GRAY . " * " . TF::GREEN . "Tap anywhere to see what it holds");
 
                     $player->getInventory()->addItem($tier2);
@@ -93,8 +93,18 @@ class Main extends PluginBase implements Listener
                     if($item instanceof PlayerInteractEvent)
                     $give = $player->getInventory()->addItem(Item::get($rewards(0,mt_rand($this->getConfig()->get("relic-max")))));
                     $this->getServer()->getScheduler()->scheduleDelayedTask($give, 100);
+                    
+        if ($item->getName() == TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" . PHP_EOL .
+            TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" . PHP_EOL .
+            TF::GRAY . " * " . TF::GREEN . "Tap anywhere to see what it holds") {
+
+                foreach ($this->getConfig()->get("relic-loot") as $rewards) {
+
+                    if($item instanceof PlayerInteractEvent)
+                    $give = $player->getInventory()->addItem(Item::get($rewards(0,mt_rand($this->getConfig()->get("relic-max")))));
+                    $this->getServer()->getScheduler()->scheduleDelayedTask($give, 100);
                     }
                 }
             }
         }
-
+    }
