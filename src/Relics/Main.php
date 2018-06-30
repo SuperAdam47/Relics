@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener
     public function onDisable()
     {
 
-        $this->getServer()->getLogger()->warning(TF::AQUA . TF::BOLD . "Relics" . TF::RESET . TF::GRAY . "has been unloaded!");
+        $this->getServer()->getLogger()->warning(TF::AQUA . TF::BOLD . "Relics" . TF::RESET . TF::GRAY . " has been unloaded!");
 
     }
 
@@ -63,8 +63,8 @@ class Main extends PluginBase implements Listener
                     $name = $player->getName();
 
                     $tier2 = Item::get(Item::NETHER_STAR, 0, 1);
-                    $tier2->setCustomName(TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" . PHP_EOL .
-                        TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" . PHP_EOL .
+                    $tier2->setCustomName(TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" .
+                        TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" .
                         TF::GRAY . " * " . TF::GREEN . "Tap anywhere to see what it holds");
 
                     $player->getInventory()->addItem($tier2);
@@ -92,19 +92,10 @@ class Main extends PluginBase implements Listener
 
                     if($item instanceof PlayerInteractEvent)
                     $give = $player->getInventory()->addItem(Item::get($rewards(0,mt_rand($this->getConfig()->get("relic-max")))));
-                    $this->getServer()->getScheduler()->scheduleDelayedTask($give, 100);
-                    
-        if ($item->getName() == TF::RESET . TF::GOLD . TF::BOLD . "Uncommon Relic" . TF::RESET . TF::GRAY . " (Click)" . PHP_EOL .
-            TF::GRAY . " * " . TF::GREEN . "A treasure found by mining" . PHP_EOL .
-            TF::GRAY . " * " . TF::GREEN . "Tap anywhere to see what it holds") {
 
-                foreach ($this->getConfig()->get("relic-loot") as $rewards) {
-
-                    if($item instanceof PlayerInteractEvent)
-                    $give = $player->getInventory()->addItem(Item::get($rewards(0,mt_rand($this->getConfig()->get("relic-max")))));
                     $this->getServer()->getScheduler()->scheduleDelayedTask($give, 100);
+                    $player->getInventory()->removeItem($item);
                     }
                 }
             }
         }
-    }
