@@ -93,7 +93,7 @@ class Main extends PluginBase implements Listener
                     if($item instanceof PlayerInteractEvent)
                     $give = $player->getInventory()->addItem(Item::get($rewards(0,mt_rand($this->getConfig()->get("relic-max")))));
 
-                    $this->getServer()->getScheduler()->scheduleDelayedTask($give, 100);
+                    $this->getScheduler()->scheduleDelayedTask($give, 100);
                     $player->getInventory()->removeItem($item);
                     }
                 }
